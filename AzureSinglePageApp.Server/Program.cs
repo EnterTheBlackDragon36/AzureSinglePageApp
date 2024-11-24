@@ -1,3 +1,4 @@
+using Azure.Identity;
 using AzureSinglePageApp.Server;
 using AzureSinglePageApp.Server.Data;
 using Microsoft.AspNetCore.Identity;
@@ -9,6 +10,11 @@ public class Program
     public static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
+
+        // Add Key Vault configuration
+        builder.Configuration.AddAzureKeyVault(
+            new Uri($"https://{builder.Configuration["kv-eonsofto880816474822"]}.vault.azure.net/"),
+            new DefaultAzureCredential());
 
         var connectionString = builder.Configuration.GetConnectionString("ApplicationDbContextConnection") ?? string.Empty;
         builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));

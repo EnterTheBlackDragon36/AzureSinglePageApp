@@ -8,6 +8,7 @@
     <SpaRoot>..\azuresinglepageapp.client</SpaRoot>
     <SpaProxyLaunchCommand>npm run dev</SpaProxyLaunchCommand>
     <SpaProxyServerUrl>https://localhost:5173</SpaProxyServerUrl>
+    <UserSecretsId>021acfc8-579d-444d-9cf2-e47383233735</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
